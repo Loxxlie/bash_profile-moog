@@ -22,7 +22,7 @@ PURPLE_BOLD="\[\033[1;35m\]"
 BROWN="\[\033[0;33m\]"
 
 # --== Coloring/Visual ==--
-export CLICOLOR="1"
+export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
 # --== Git 'Plugins' ==--
@@ -38,16 +38,28 @@ export GIT_PS1_SHOWDIRTYSTATE="1"
 export GIT_PS1_SHOWUNTRACKEDFILES="1"
 export GIT_BRANCH_PROMPT='$(__git_ps1 " (%s)")'
 
+# Set prompt format & colors
 export PS1="$YELLOW\w$RED$GIT_BRANCH_PROMPT\n$WHITE\u@$RED\h$WHITE \$ "
+
+# Set terminal background color to black
+#   Instead of this command, I just set the terminal background color manually because I cannot
+#   control opacity from the command line.
+# osascript -e "tell application \"Terminal\" to set background color of window 1 to {0, 0, 0}"
+
+# Set font color to light grey
+#   Because no such setting is needed for font color, I can set it regularly.
+osascript -e "tell application \"Terminal\" to set normal text color of window 1 to {52428, 54998, 54998}"
 
 # --== Aliases/Shortcuts ==--
 # code: Opens Visual Studio Code from commandline
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-# PROJ: Shortcut to Repos folder
-export PROJ=$HOME/Repos
+# repos: Shortcut to Repos folder
+export repos=$HOME/Repos
 
 # --== Load .bashrc if it exists ==--
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
+
+
