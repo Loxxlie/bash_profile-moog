@@ -58,6 +58,11 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # repos: Shortcut to Repos folder
 export repos=$HOME/Repos
 
+# --== Load .autoenv if it exists ==--
+if [ -d ~/.autoenv ]; then
+    source ~./autoenv/activate.sh
+fi
+
 # --== Load .bashrc if it exists ==--
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
