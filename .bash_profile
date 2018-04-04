@@ -37,6 +37,7 @@ source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE="1"
 export GIT_PS1_SHOWUNTRACKEDFILES="1"
 export GIT_BRANCH_PROMPT='$(__git_ps1 " (%s)")'
+export WORKON_HOME=~/.virtualenvs
 
 # Set prompt format & colors
 export PS1="$YELLOW\w$RED$GIT_BRANCH_PROMPT\n$WHITE\u@$RED\h$WHITE \$ "
@@ -61,5 +62,6 @@ export repos=$HOME/Repos
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
+
 
 
