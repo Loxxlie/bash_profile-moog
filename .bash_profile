@@ -65,7 +65,7 @@ fi
 
 # --== Load .autoenv if it exists ==--
 if [ -d ~/.autoenv ]; then
-    source ~./autoenv/activate.sh
+    source ~/.autoenv/activate.sh
 fi
 
 # --== Load .bashrc if it exists ==--

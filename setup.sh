@@ -31,3 +31,6 @@ if ! [ -f ~/.git-prompt.sh ]; then
     echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW git-prompt.sh$WHITE to $GREEN~/"
     curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 fi
+
+echo "This bash profiel expects the installation of autoenv to ~/.autoenv"
+echo "Please run \"git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv\""
