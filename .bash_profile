@@ -58,6 +58,11 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # repos: Shortcut to Repos folder
 export repos=$HOME/Repos
 
+# --== Load virtualenvwrapper if it exists ==--
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    . /usr/local/bin/virtualenvwrapper.sh
+fi
+
 # --== Load .autoenv if it exists ==--
 if [ -d ~/.autoenv ]; then
     source ~./autoenv/activate.sh
