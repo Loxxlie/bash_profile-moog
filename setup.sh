@@ -18,23 +18,23 @@ if [ -a $BASH_PROFILE ]; then
 fi
 
 # Copies over the repo's version of .bash_profile to the local user's home directiory
-echo -e "$BLUE_BOLD=>$WHITE Copying over fresh $YELLOW.bash_profile$WHITE to $GREEN~/"
+echo -e "$BLUE_BOLD=>$WHITE Copying over fresh $YELLOW.bash_profile$WHITE to $GREEN~/\033[00m"
 cp .bash_profile $BASH_PROFILE
 
 # Pulls down pre-reqs
 if ! [ -f ~/.git-completion.bash ]; then
-    echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW git-completion.bash$WHITE to $GREEN~/"
+    echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW git-completion.bash$WHITE to $GREEN~/\033[00m"
     curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
 # if ! [ -f ~/.git-prompt.sh ]; then
-#     echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW git-prompt.sh$WHITE to $GREEN~/"
+#     echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW git-prompt.sh$WHITE to $GREEN~/\033[00m"
 #     curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 # fi
 
 if ! [ -f ~/.bash-git-prompt/gitprompt.sh ]; then
-    echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW bash-git-prompt$WHITE to $GREEN~/"
-    curl -s git@github.com:magicmonty/bash-git-prompt.git -o ~/.bash-git-prompt
+    echo -e "$BLUE_BOLD=>$WHITE Downloading $YELLOW.bash-git-prompt$WHITE to $GREEN~/\033[00m"
+    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
 fi
 
 echo "This bash profile expects the installation of autoenv to ~/.autoenv"
