@@ -25,22 +25,30 @@ BROWN="\[\033[0;33m\]"
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
+# --== Basic Prompt ==--
+export PS_START='${debian_chroot:+($debian_chroot)}\033[38;5;255;1m\u@\h\033[00m : \033[38;5;255;1m\w\033[00m'
+export PS_END=' \n\033[38;5;229m[\t]\033[00m $ '
+export PS1=$PS_START$PS_END
+
 # --== Git 'Plugins' ==--
 # Auto-complete
 # curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 source ~/.git-completion.bash
 
-# Prompt
-# curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
-source ~/.git-prompt.sh
+# # Prompt
+# # curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+# source ~/.git-prompt.sh
+# export GIT_PS1_SHOWDIRTYSTATE="1"
+# export GIT_PS1_SHOWUNTRACKEDFILES="1"
+# export GIT_BRANCH_PROMPT='$(__git_ps1 " (%s)")'
 
-export GIT_PS1_SHOWDIRTYSTATE="1"
-export GIT_PS1_SHOWUNTRACKEDFILES="1"
-export GIT_BRANCH_PROMPT='$(__git_ps1 " (%s)")'
+# curl https://github.com/magicmonty/bash-git-prompt.git -o ~/.bash_git_prompt
+GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_START=$PS_START
+GIT_PROMPT_END=$PS_END
+source ~/.bash-git-prompt/gitprompt.sh
+
 export WORKON_HOME=~/.virtualenvs
-
-# Set prompt format & colors
-export PS1="$YELLOW\w$RED$GIT_BRANCH_PROMPT\n$WHITE\u@$RED\h$WHITE \$ "
 
 # Set terminal background color to black
 #   Instead of this command, I just set the terminal background color manually because I cannot
@@ -49,14 +57,18 @@ export PS1="$YELLOW\w$RED$GIT_BRANCH_PROMPT\n$WHITE\u@$RED\h$WHITE \$ "
 
 # Set font color to light grey
 #   Because no such setting is needed for font color, I can set it regularly.
-osascript -e "tell application \"Terminal\" to set normal text color of window 1 to {52428, 54998, 54998}"
+# osascript -e "tell application \"Terminal\" to set normal text color of window 1 to {52428, 54998, 54998}"
 
 # --== Aliases/Shortcuts ==--
 # code: Opens Visual Studio Code from commandline
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-# repos: Shortcut to Repos folder
+# --== Useful Macros ==--
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 export repos=$HOME/Repos
+
 
 # --== Load virtualenvwrapper if it exists ==--
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
