@@ -27,10 +27,15 @@ if ! [ -f ~/.git-completion.bash ]; then
     curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
-if ! [ -f ~/.git-prompt.sh ]; then
-    echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW git-prompt.sh$WHITE to $GREEN~/"
-    curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+# if ! [ -f ~/.git-prompt.sh ]; then
+#     echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW git-prompt.sh$WHITE to $GREEN~/"
+#     curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+# fi
+
+if ! [ -f ~/.bash-git-prompt/gitprompt.sh ]; then
+    echo -e "$BLUE_BOLD=>$WHITE Downloading$YELLOW bash-git-prompt$WHITE to $GREEN~/"
+    curl -s git@github.com:magicmonty/bash-git-prompt.git -o ~/.bash-git-prompt
 fi
 
-echo "This bash profiel expects the installation of autoenv to ~/.autoenv"
+echo "This bash profile expects the installation of autoenv to ~/.autoenv"
 echo "Please run \"git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv\""
