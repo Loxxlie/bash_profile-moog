@@ -3,6 +3,7 @@
 # Run this script from the root of the project directory!
 
 BASH_PROFILE=~/.bash_profile
+TMUX_PROFILE=~/.tmux_conf
 cd="${0%/*}"
 
 # Colors
@@ -20,6 +21,16 @@ fi
 # Copies over the repo's version of .bash_profile to the local user's home directiory
 echo -e "$BLUE_BOLD=>$WHITE Copying over fresh $YELLOW.bash_profile$WHITE to $GREEN~/\033[00m"
 cp .bash_profile $BASH_PROFILE
+
+# Checks for existance of current .tmux_conf and makes a local backup
+if [ -a $TMUX_PROFILE ]; then
+    echo -e "$BLUE_BOLD=>$WHITE Making a backup of $YELLOW$TMUX_PROFILE$WHITE to $GREEN$TMUX_PROFILE.bak"
+    mv &TMUX_PROFILE $TMUX_PROFILE.bak
+fi
+
+# Copies over the repo's version of .tmux_conf to the local user's home directiory
+echo -e "$BLUE_BOLD=>$WHITE Copying over fresh $YELLOW.tmux_conf$WHITE to $GREEN~/\033[00m"
+cp .tmux_conf $TMUX_PROFILE
 
 # Pulls down pre-reqs
 if ! [ -f ~/.git-completion.bash ]; then
